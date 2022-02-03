@@ -1,0 +1,46 @@
+class Solution
+{
+    public:
+     Node* reverse(Node* head)
+    {
+      Node*prev=NULL;
+      Node*curr=head;
+      Node*next=NULL;
+      
+          while(curr!=NULL)
+          {
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+              
+    
+          }
+      
+      return prev;
+    }
+    Node* addOne(Node *head) 
+    {  
+        int carry=1;
+        Node*revhead=reverse(head);
+        Node*temp=revhead;
+        Node*prev=NULL;
+        while(temp!=NULL)
+        {
+            temp->data=temp->data+carry;
+            carry=temp->data/10;
+            temp->data=temp->data%10;
+            prev=temp;
+            temp=temp->next;
+        }
+        if(carry==1)
+        {
+            Node*n1=new Node(carry);
+            prev->next=n1;
+        }
+        revhead=reverse(revhead);
+        return revhead;
+        // Your Code here
+        // return head of list after adding one
+    }
+};
