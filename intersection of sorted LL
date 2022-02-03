@@ -1,0 +1,38 @@
+Node* findIntersection(Node* head1, Node* head2)
+{
+    Node* p1=head1;
+    Node* p2=head2;
+    Node* p3=NULL;
+    Node* head3=NULL;
+    while(p1!=NULL && p2!=NULL)
+    {
+        if(p1->data<p2->data)
+    {
+        p1=p1->next;
+        
+    }
+    else if(p1->data>p2->data)
+    {
+        p2=p2->next;
+    }
+    else
+    {
+       Node*n1=new Node(p1->data);
+      
+       p1=p1->next;
+       p2=p2->next;
+        if(p3==NULL)
+        {
+            head3=n1;
+            p3=n1;
+        }
+        else
+        {
+            p3->next=n1;
+            p3=p3->next;
+        }
+    }
+    }
+return head3;
+    // Your Code Here
+}
